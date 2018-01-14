@@ -1,4 +1,4 @@
-public interface Comperator {
+public interface Comparator {
 	/**
 	 * @param o1
 	 *            - the first object to be compared.

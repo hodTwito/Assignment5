@@ -1,4 +1,4 @@
-public class ClientTotalProductsPriceComparator implements Comperator {
+public class ClientTotalProductsPriceComparator implements Comparator {
 	@Override
 	public int compare(Object o1, Object o2) {
 		if(!(o1 instanceof Client && o2 instanceof Client))

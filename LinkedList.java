@@ -1,16 +1,22 @@
 public class LinkedList implements List{
 
 	// Fields
-	private Link head, tail;
-	private int size;
-	
-	
-	// Constructors
+	private Link head, tail; //pointers to the head of the list and the tail of the list.
+	private int size; //the size of the list.
+
+
+    /**
+     * default constructor
+     */
 	public LinkedList (){
 		head = null;
 		tail = null;
 	}
-	//copy constructor
+
+    /**
+     * copy constructor
+     * @param list the list being copied.
+     */
 	public LinkedList (LinkedList list){
 		if(list.head != null){
 			this.head = new Link(list.head);
@@ -22,9 +28,11 @@ public class LinkedList implements List{
 		}
 		this.size = list.size;
 	}
-	
-	
-	// Methods
+
+    /**
+     * adds an element to the end of the list.
+     * @param element the element that will be added.
+     */
 	public void add(Object element){
 		if(element == null){
 			throw new NullPointerException();
@@ -44,6 +52,11 @@ public class LinkedList implements List{
 		size++;
 	}
 
+    /**
+     * adds an element to a certain index in the list, pushes all elements ofter that index one index forward.
+     * @param index the index in which the element will be added.
+     * @param element the element that will be added.
+     */
 	public void add(int index, Object element){
 		if(index<0 || index>=size)
 			throw new IndexOutOfBoundsException();
@@ -71,11 +84,19 @@ public class LinkedList implements List{
 		}
 	}
 
+    /**
+     * @return the size of the list
+     */
     @Override
     public int size() {
         return size;
     }
 
+    /**
+     * checks if the list contains a certain element.
+     * @param element the element being searched for.
+     * @return true if the list contains <code>element</code> and false otherwise.
+     */
     @Override
     public boolean contains(Object element) {
 	    if(element == null || size == 0) return false;
@@ -90,11 +111,18 @@ public class LinkedList implements List{
         }
     }
 
+    /**
+     * @return true if the list is empty and false otherwise.
+     */
     @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * @param index the index of the desired element.
+     * @return the element of the list at <code>index</code>
+     */
     @Override
     public Object get(int index) {
 	    if(index < 0) throw new IndexOutOfBoundsException("index smaller then 0");
@@ -109,6 +137,12 @@ public class LinkedList implements List{
         }
     }
 
+    /**
+     * replaces an element of the list with a new element.
+     * @param index the index of the element we want to change.
+     * @param element the new element that will be placed in the list.
+     * @return
+     */
     @Override
     public Object set(int index, Object element) {
         if(index < 0) throw new IndexOutOfBoundsException("index smaller then 0");
@@ -126,7 +160,11 @@ public class LinkedList implements List{
         }
 	}
 
-	public void sortBy(Comperator comp) {
+    /**
+     * sorts the list using a specific comparator.
+     * @param comp a comparator that specifies the required ordering of the lists elements.
+     */
+	public void sortBy(Comparator comp) {
 	    if(comp == null) throw new NullPointerException("comparator cant be null");
 	    //TODO: maybe improve efficiency and not use the get function.
 	    int minIndex = 0;
@@ -141,17 +179,26 @@ public class LinkedList implements List{
         }
 	}
 
-    public void swap(Object obj1, Object obj2) {
+    /**
+     * swaps two objects (by reference).
+     * @param obj1 first object
+     * @param obj2 second object
+     */
+    private void swap(Object obj1, Object obj2) {
+        //TODO: see if this is a good way to swap.
 	    Object temp = obj1;
 	    obj1 = obj2;
 	    obj2 = temp;
     }
 
 
-	//TODO: see when we need to start a new line.
+    /**
+     * @return a string describing the list.
+     */
 	@Override
     public String toString() {
-	    String result = "";
+        //TODO: see when we need to start a new line.
+        String result = "";
 	    if(this.isEmpty()) return result;
 	    else result = "List: ";
 	    Link pointer = head;
@@ -162,6 +209,11 @@ public class LinkedList implements List{
 	    return result;
     }
 
+    /**
+     * checks if the list obj is equal to this list, if obj is a list.
+     * @param obj the list being compared with this list.
+     * @return true if all elements of both lists are the same and are ordered the same way.
+     */
     @Override
     public boolean equals(Object obj) {
 	    if(obj instanceof LinkedList) {

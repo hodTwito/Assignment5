@@ -1,4 +1,3 @@
-
 public class ClientProductManagementSystem {
 	private LinkedList clients;
 	private LinkedList products;
@@ -54,7 +53,7 @@ public class ClientProductManagementSystem {
 		if(clients.contains(client)&&products.contains(product)) //check if client and product exist in the lists
 			if(client.addProduct(product))//try add product to client
 				return true; //added successfully
-		return false; //couln't add
+		return false; //couldn't add
 	}
 
 	/**
@@ -62,7 +61,7 @@ public class ClientProductManagementSystem {
 	 * @param k
 	 * @return linked list sorted by comp comperator, contains the first k clients
 	 */
-	public LinkedList getFirstKclients(Comperator comp, int k) {
+	public LinkedList getFirstKclients(Comparator comp, int k) {
 		this.clients.sortBy(comp); //sort clients by comp
 		LinkedList firstKclients=new LinkedList();
 		while(k>0) {
@@ -75,10 +74,10 @@ public class ClientProductManagementSystem {
 	/**
 	 * @param client
 	 * @return final price of the client's order
-	 * return 0 if the client isn't registed in the system
+	 * return 0 if the client isn't resisted in the system
 	 */
 	public double computeFinalOrderPrice(Client client) {
-		if(this.clients.contains(client)) //check if client registed
+		if(this.clients.contains(client)) //check if client resisted
 			return client.computeFinalOrderPrice();
 		return 0;
 	}

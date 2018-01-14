@@ -15,7 +15,7 @@ public class VIPClient extends Client{
     }
 	
 	/**
-	 * vip client shipping price- reduce in a half
+	 * vip client shipping price - reduce by a half
 	 */
 	@Override
 	public double computeFinalShippingPrice() { //need a check! TODO
