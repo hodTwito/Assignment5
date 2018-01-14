@@ -11,6 +11,12 @@ public class ClientProductManagementSystem {
 		this.products=new LinkedList();
 	}
 	
+	/** @return number of clients in the list*/
+	public int getNumberOfClients() {return this.clients.size();}
+	
+	/** @return number of products in the list*/
+	public int getNumberOfProducts() {return this.products.size();}
+	
 	/**
 	 * @param client- new client to add to the list
 	 * @return true if client can be added to the list, false else
@@ -52,7 +58,7 @@ public class ClientProductManagementSystem {
 	}
 
 	/**
-	 * @param comp
+	 * @param comp- comparator to order the clients by
 	 * @param k
 	 * @return linked list sorted by comp comperator, contains the first k clients
 	 */
@@ -66,9 +72,14 @@ public class ClientProductManagementSystem {
 		return firstKclients;
 	}
 	
-	/** @return number of clients in the list*/
-	public int getNumberOfClients() {return this.clients.size();}
-	
-	/** @return number of products in the list*/
-	public int getNumberOfProducts() {return this.products.size();}
+	/**
+	 * @param client
+	 * @return final price of the client's order
+	 * return 0 if the client isn't registed in the system
+	 */
+	public double computeFinalOrderPrice(Client client) {
+		if(this.clients.contains(client)) //check if client registed
+			return client.computeFinalOrderPrice();
+		return 0;
+	}
 }
