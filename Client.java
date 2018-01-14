@@ -37,14 +37,14 @@ public class Client {
 	/**get client's id*/
 	public int getId() {return this.id;}
 	
-	/**get client's list of products*///TODO- check linked list copy constructor!
+	/**get client's list of products*/
 	public LinkedList getProducts() {return products;}//encapsulation??
 	
 	/**
 	 * @param product
 	 * @return true if product is in the client's list, false else
 	 */
-	public boolean isInterestedIn(Product product) { //need a check!!
+	public boolean isInterestedIn(Product product) {
 		return this.products.contains(product);
 	}
 	
@@ -64,12 +64,30 @@ public class Client {
 	/**
 	 * @return sum of all prices of the products in the client's list
 	 */
-	public double calculateTotalPriceOfProducts() {
+	public double computeFinalProductsPrice() {//written after used in compare??
 		double totalPrice=0;
 		for (int i = 0; i < products.size(); i++)
-			totalPrice+=((Product)products.get(i)).getProductPrice();
+			totalPrice+=((Product)products.get(i)).computeFinalPrice()[0];
 		return totalPrice;
 	}
+	
+	/**
+	 * @return sum of all shipping prices of the products in the client's list
+	 */
+	public double computeFinalShippingPrice() {
+		double totalPrice=0;
+		for (int i = 0; i < products.size(); i++)
+			totalPrice+=((Product)products.get(i)).computeFinalPrice()[1];
+		return totalPrice;
+	}
+	
+	/**
+	 * @return sum price of all the client's order price, shipping and products
+	 */
+	public double computeFinalOrderPrice() {
+		return computeFinalProductsPrice()+computeFinalShippingPrice();//this??
+	}
+	
 	
 	/**
 	 * @return string contains the data about the client and all his products
@@ -77,7 +95,7 @@ public class Client {
 	@Override
 	public String toString() {
 		return "Client: "+this.firstName+" "+this.lastName+", "+this.id+
-				", "+this.calculateTotalPriceOfProducts()+", Products:\n"+this.products.toString();
+				", "+this.computeFinalProductsPrice()+", Products:\n"+this.products.toString();
 	}
 	
 	/**
