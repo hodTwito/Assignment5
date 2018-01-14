@@ -35,10 +35,10 @@ public class Client {
 	public String getFirstName() {return this.firstName;}
 	
 	/**get client's id*/
-	public String getId() {return ""+this.id;}
+	public int getId() {return this.id;}
 	
 	/**get client's list of products*///TODO- check linked list copy constructor!
-	public LinkedList getProducts() {return new LinkedList(products);}
+	public LinkedList getProducts() {return products;}//encapsulation??
 	
 	/**
 	 * @param product
@@ -72,9 +72,9 @@ public class Client {
 	}
 	
 	@Override
-	public String toString() { //TODO
-		// TODO Auto-generated method stub
-		return super.toString();
+	public String toString() {
+		return "Client: "+this.firstName+" "+this.lastName+", "+this.id+
+				", "+this.calculateTotalPriceOfProducts()+", Products:\n"+this.products.toString();
 	}
 	
 	/**

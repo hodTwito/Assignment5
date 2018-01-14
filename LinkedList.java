@@ -14,7 +14,6 @@ public class LinkedList implements List{
 	public LinkedList (LinkedList list){
 		this.head = new Link(list.head);
 		Link pointer = this.head;
-		//TODO: check if this is true, should be pointer.getData != null because the while wont reach the last element since it's getNext is null.
 		while(pointer.getNext() != null){
 			pointer = pointer.getNext();
 		}
