@@ -19,7 +19,7 @@ public class Link{
 		if(link.getData() instanceof Client)
 			this.data = new Client((Client) link.getData());
 		else if(link.getData() instanceof VIPClient)
-			this.data = new VIPClient((VIPClient)link.getData());
+			this.data = new VIPClient((VIPClient) link.getData());
 		else if(link.getData() instanceof ProductInStore)
 			this.data = new ProductInStore((ProductInStore) link.getData());
 		else if(link.getData() instanceof ProductInStorageSmall)

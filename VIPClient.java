@@ -9,7 +9,11 @@ public class VIPClient extends Client{
 	public VIPClient(String firstName, String lastName, int id) { ///?
 		super(firstName, lastName, id);
 	}
-	
+
+	public VIPClient(VIPClient vipClient) {
+	    super(vipClient.getFirstName(), vipClient.getLastName(), vipClient.getId());
+    }
+
 
 
 	// Methods
