@@ -10,6 +10,10 @@ public abstract class Product {
 	public Product(String name, int serialNum, double price){
 		// implement
 	}
+
+	public Product(Product product) {
+	    this(product.name, product.serialNum, product.price);
+    }
 	
 	public double getProductPrice() {
 		return this.price;

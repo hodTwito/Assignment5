@@ -10,6 +10,6 @@ public class ProductInStorageLarge extends Product {
 
     @Override
     public double[] computeFinalPrice() {
-        return new double[0];
+        return new double[] {this.getProductPrice(), Math.floor(0.1 * getProductPrice())};
     }
 }

@@ -10,6 +10,6 @@ public class ProductInStore extends Product {
 
     @Override
     public double[] computeFinalPrice() {
-        return new double[0];
+        return new double[] {this.getProductPrice(), 0};
     }
 }

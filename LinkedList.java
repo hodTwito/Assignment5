@@ -55,7 +55,7 @@ public class LinkedList implements List{
 	        newLink.setNext(head);
 	        head = newLink;
 		}
-		else{
+		else {
 			int listIndex = 1;
 			Link pointer = head;
 			Link pointerNext = head.getNext();
@@ -78,7 +78,7 @@ public class LinkedList implements List{
 
     @Override
     public boolean contains(Object element) {
-	    if(element == null) return false;
+	    if(element == null || size == 0) return false;
 	    else {
 	        Link pointer = head;
 	        int index = 0;
