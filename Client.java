@@ -66,11 +66,14 @@ public class Client {
 	 */
 	public double calculateTotalPriceOfProducts() {
 		double totalPrice=0;
-		for (int i = 0; i < products.size; i++)
+		for (int i = 0; i < products.size(); i++)
 			totalPrice+=((Product)products.get(i)).getProductPrice();
 		return totalPrice;
 	}
 	
+	/**
+	 * @return string contains the data about the client and all his products
+	 */
 	@Override
 	public String toString() {
 		return "Client: "+this.firstName+" "+this.lastName+", "+this.id+
