@@ -8,7 +8,9 @@ public abstract class Product {
 	
 	// Constructors
 	public Product(String name, int serialNum, double price){
-		// implement
+		this.name = name;
+		this.serialNum = serialNum;
+		this.price = price;
 	}
 
 	public Product(Product product) {
