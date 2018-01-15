@@ -87,7 +87,6 @@ public class LinkedList implements List{
     /**
      * @return the size of the list
      */
-    @Override
     public int size() {
         return size;
     }
@@ -97,7 +96,6 @@ public class LinkedList implements List{
      * @param element the element being searched for.
      * @return true if the list contains <code>element</code> and false otherwise.
      */
-    @Override
     public boolean contains(Object element) {
 	    if(element == null || size == 0) return false;
 	    else {
@@ -114,7 +112,6 @@ public class LinkedList implements List{
     /**
      * @return true if the list is empty and false otherwise.
      */
-    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -123,7 +120,6 @@ public class LinkedList implements List{
      * @param index the index of the desired element.
      * @return the element of the list at <code>index</code>
      */
-    @Override
     public Object get(int index) {
 	    if(index < 0) throw new IndexOutOfBoundsException("index smaller then 0");
 	    else if(index > size) throw new IndexOutOfBoundsException("index is greater then list size");
@@ -143,7 +139,6 @@ public class LinkedList implements List{
      * @param element the new element that will be placed in the list.
      * @return
      */
-    @Override
     public Object set(int index, Object element) {
         if(index < 0) throw new IndexOutOfBoundsException("index smaller then 0");
         else if(index > size) throw new IndexOutOfBoundsException("index is greater then list size");
@@ -180,19 +175,6 @@ public class LinkedList implements List{
 	}
 
     /**
-     * swaps two objects (by reference).
-     * @param obj1 first object
-     * @param obj2 second object
-     */
-    private void swap(Object obj1, Object obj2) {
-        //TODO: see if this is a good way to swap.
-	    Object temp = obj1;
-	    obj1 = obj2;
-	    obj2 = temp;
-    }
-
-
-    /**
      * @return a string describing the list.
      */
 	@Override
@@ -200,7 +182,7 @@ public class LinkedList implements List{
         //TODO: see when we need to start a new line.
         String result = "";
 	    if(this.isEmpty()) return result;
-	    else result = "List: ";
+	    else result = "List: "; //???
 	    Link pointer = head;
 	    while(pointer != null) {
 	        result += pointer.toString();
@@ -223,7 +205,7 @@ public class LinkedList implements List{
 	            Link pointerThis = this.head;
 	            Link pointerOther = other.head;
 	            while(pointerThis != null) {
-	                if(pointerThis.getData() != pointerOther.getData()) return false;
+	                if(!pointerThis.equals(pointerOther)) return false; 
 	                pointerThis = pointerThis.getNext();
 	                pointerOther = pointerOther.getNext();
                 }
@@ -232,4 +214,17 @@ public class LinkedList implements List{
         }
         return false;
     }
+    
+    /**
+     * swaps two objects (by reference).
+     * @param obj1 first object
+     * @param obj2 second object
+     */
+    private void swap(Object obj1, Object obj2) {
+        //TODO: see if this is a good way to swap.
+	    Object temp = obj1;
+	    obj1 = obj2;
+	    obj2 = temp;
+    }
+
 }

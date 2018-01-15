@@ -34,7 +34,7 @@ public class Link{
 	}
 
 
-	// Methods
+	// Methods	
 	public Object getData(){
 		return data;
 	}
@@ -53,10 +53,12 @@ public class Link{
 		return res;
 	}
 
+	@Override
 	public String toString(){
 		return data.toString();
 	}
 
+	@Override
 	public boolean equals(Object other) {
 		if(other instanceof Link) {
 			Link otherLink = (Link)other;
