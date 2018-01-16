@@ -104,7 +104,8 @@ public class LinkedList implements List{
 	            pointer = pointer.getNext();
 	            index++;
             }
-            return pointer.getData().equals(element);
+            if(pointer != null) return true;
+            else return false;
         }
     }
 
@@ -124,7 +125,7 @@ public class LinkedList implements List{
 	    else if(index > size) throw new IndexOutOfBoundsException("index is greater then list size");
 	    else {
 	        Link pointer = head;
-	        while(index > -1) {
+	        while(index > 0) {
 	            pointer = pointer.getNext();
 	            index--;
             }
@@ -144,7 +145,7 @@ public class LinkedList implements List{
         else if(element == null) throw new NullPointerException("can not add null element to the list.");
         else {
             Link pointer = head;
-            while(index > -1) {
+            while(index > 0) {
                 pointer = pointer.getNext();
                 index--;
             }
@@ -163,11 +164,11 @@ public class LinkedList implements List{
 	    int minIndex;
 	    for(int i = 0; i < size - 1; i++) {
 	        minIndex = i;
-	        for(int j = i; j < size; j++) {
+	        for(int j = i + 1; j < size; j++) {
 	            if(comp.compare(this.get(j), this.get(minIndex)) < 0) {
 	                minIndex = j;
-                }
-                swap(this.get(i), this.get(j));
+	            }
+                swap(i, minIndex);
             }
         }
 	}
@@ -217,10 +218,9 @@ public class LinkedList implements List{
      * @param obj1 first object
      * @param obj2 second object
      */
-    private void swap(Object obj1, Object obj2) {
-	    Object temp = obj1;
-	    obj1 = obj2;
-	    obj2 = temp;
+    private void swap(int i, int j) {
+	   Object objI = this.set(i, this.get(j));
+	   this.set(j, objI);
     }
 
 }
