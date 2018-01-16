@@ -4,10 +4,6 @@ public class ProductInStore extends Product {
         super(name, serialNum, price);
     }
 
-    public ProductInStore(ProductInStore productInStore) {
-        super(productInStore);
-    }
-
     public ProductInStore(Object object) {
         super((ProductInStore)object);
     }

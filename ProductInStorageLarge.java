@@ -4,10 +4,6 @@ public class ProductInStorageLarge extends Product {
         super(name, serialNum, price);
     }
 
-    public ProductInStorageLarge(ProductInStorageLarge productInStorageLarge) {
-        super(productInStorageLarge);
-    }
-
     public ProductInStorageLarge(Object object) {
         super((ProductInStorageLarge)object);
      }

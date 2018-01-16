@@ -4,10 +4,6 @@ public class ProductInStorageMedium extends Product {
         super(name, serialNum, price);
     }
 
-    public ProductInStorageMedium(ProductInStorageMedium productInStorageMedium) {
-        super(productInStorageMedium);
-    }
-
     public ProductInStorageMedium(Object object) {
         super((ProductInStorageMedium)object);
     }
