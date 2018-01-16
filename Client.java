@@ -21,11 +21,18 @@ public class Client {
 	}
 	
 	/**
-	 * copy constructor
+	 * copy constructor- Client
 	 */
 	public Client(Client client) {
 		this(client.firstName,client.lastName,client.id);
 		this.products=client.getProducts();
+	}
+	
+	/**
+	 * copy constructor- Object
+	 */
+	public Client(Object client) {
+		this((Client)client);
 	}
 	
 	/**get client's last name*/
