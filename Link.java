@@ -27,17 +27,17 @@ public class Link{
 	 * @param link to copy to a new link
 	 */
 	public Link(Link link)	{
-		if(link.getData() instanceof Client)
-			this.data = new Client((Client) link.getData());
-		else if(link.getData() instanceof VIPClient)
-			this.data = new VIPClient((VIPClient) link.getData());
+		if(link.getData() instanceof VIPClient)
+			this.data = new VIPClient(link.getData());
+		else if(link.getData() instanceof Client)
+			this.data = new Client(link.getData());
 		else if(link.getData() instanceof ProductInStore)
-			this.data = new ProductInStore((ProductInStore) link.getData());
+			this.data = new ProductInStore(link.getData());
 		else if(link.getData() instanceof ProductInStorageSmall)
-			this.data = new ProductInStorageSmall((ProductInStorageSmall) link.getData());
+			this.data = new ProductInStorageSmall(link.getData());
 		else if(link.getData() instanceof ProductInStorageMedium)
-			this.data = new ProductInStorageMedium((ProductInStorageMedium) link.getData());
-		else this.data = new ProductInStorageLarge((ProductInStorageLarge) link.getData());
+			this.data = new ProductInStorageMedium(link.getData());
+		else this.data = new ProductInStorageLarge(link.getData());
 		if(link.getNext() != null){
 			this.next = new Link (link.getNext());
 		}

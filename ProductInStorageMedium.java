@@ -8,6 +8,10 @@ public class ProductInStorageMedium extends Product {
         super(productInStorageMedium);
     }
 
+    public ProductInStorageMedium(Object object) {
+        super((ProductInStorageMedium)object);
+    }
+
     @Override
     public double[] computeFinalPrice() {
         return new double[] {this.getProductPrice(), Math.floor(0.07 * getProductPrice())};
