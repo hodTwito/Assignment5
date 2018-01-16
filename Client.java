@@ -38,7 +38,7 @@ public class Client {
 	public int getId() {return this.id;}
 	
 	/**get client's list of products*/
-	public LinkedList getProducts() {return products;}//encapsulation??
+	public LinkedList getProducts() {return new LinkedList(products);}
 	
 	/**
 	 * @param product
@@ -64,7 +64,7 @@ public class Client {
 	/**
 	 * @return sum of all prices of the products in the client's list
 	 */
-	public double computeFinalProductsPrice() {//written after used in compare??
+	public double computeFinalProductsPrice() {
 		double totalPrice=0;
 		for (int i = 0; i < products.size(); i++)
 			totalPrice+=((Product)products.get(i)).computeFinalPrice()[0];
@@ -85,9 +85,8 @@ public class Client {
 	 * @return sum price of all the client's order price, shipping and products
 	 */
 	public double computeFinalOrderPrice() {
-		return computeFinalProductsPrice()+computeFinalShippingPrice();//this??
+		return this.computeFinalProductsPrice()+this.computeFinalShippingPrice();
 	}
-	
 	
 	/**
 	 * @return string contains the data about the client and all his products
@@ -95,7 +94,7 @@ public class Client {
 	@Override
 	public String toString() {
 		return "Client: "+this.firstName+" "+this.lastName+", "+this.id+
-				", "+this.computeFinalProductsPrice()+", Products:\n"+this.products.toString();
+				", "+this.computeFinalOrderPrice()+", Products:\n"+this.products.toString();
 	}
 	
 	/**
