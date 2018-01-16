@@ -1,6 +1,5 @@
 public class LinkedList implements List{
 
-	// Fields
 	private Link head, tail; //pointers to the head of the list and the tail of the list.
 	private int size; //the size of the list.
 
@@ -161,8 +160,7 @@ public class LinkedList implements List{
      */
 	public void sortBy(Comparator comp) {
 	    if(comp == null) throw new NullPointerException("comparator cant be null");
-	    //TODO: maybe improve efficiency and not use the get function.
-	    int minIndex = 0;
+	    int minIndex;
 	    for(int i = 0; i < size - 1; i++) {
 	        minIndex = i;
 	        for(int j = i; j < size; j++) {
@@ -179,15 +177,14 @@ public class LinkedList implements List{
      */
 	@Override
     public String toString() {
-        //TODO: see when we need to start a new line.
         String result = "";
 	    if(this.isEmpty()) return result;
-	    else result = "List: "; //???
 	    Link pointer = head;
-	    while(pointer != null) {
-	        result += pointer.toString();
+	    while(pointer.getNext() != null) {
+	        result += pointer.toString() + "\n";
 	        pointer = pointer.getNext();
         }
+        result += pointer.toString();
 	    return result;
     }
 
@@ -221,7 +218,6 @@ public class LinkedList implements List{
      * @param obj2 second object
      */
     private void swap(Object obj1, Object obj2) {
-        //TODO: see if this is a good way to swap.
 	    Object temp = obj1;
 	    obj1 = obj2;
 	    obj2 = temp;

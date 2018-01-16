@@ -1,7 +1,7 @@
 public class Link{
 
-	private Object data;
-	private Link next;
+	private Object data; //the data contained in the link.
+	private Link next; //a pointer to the next link in a chain.
 
 	/**
 	 * constructor
