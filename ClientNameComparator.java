@@ -1,4 +1,3 @@
-
 public class ClientNameComparator implements Comparator {
 
 	@Override

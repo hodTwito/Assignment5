@@ -12,7 +12,7 @@ public class Client {
 	 * @param id of the client
 	 */
 	public Client(String firstName, String lastName, int id){
-		if(isLegalName(firstName)||isLegalName(lastName)||id<=0)
+		if(!isLegalName(firstName)||!isLegalName(lastName)||id<=0)
 			throw new IllegalArgumentException();
 		this.firstName=firstName;
 		this.lastName=lastName;
@@ -121,11 +121,8 @@ public class Client {
 	 * @return true if name is legal, false else
 	 */
 	private boolean isLegalName(String name) {
-		if(name==null||name.length()<0)//null or illegal length
+		if(name==null||name.length()<=0)//null or illegal length
 			return false;
-		for (int i = 0; i < name.length(); i++)
-			if(name.charAt(i)<65||(name.charAt(i)>90&&name.charAt(i)<97)||name.charAt(i)>122)//char isn't a letter
-				return false;
 		return true;
 	}
 }

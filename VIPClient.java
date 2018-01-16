@@ -3,29 +3,23 @@ public class VIPClient extends Client{
 	/**
 	 * constructor
 	 */
-	public VIPClient(String firstName, String lastName, int id) { ///?
+	public VIPClient(String firstName, String lastName, int id) {
 		super(firstName, lastName, id);
 	}
 
 	/**
-	 * copy constructor- by VIPVlient
-	 */
-	public VIPClient(VIPClient vipClient) {
-	    super(vipClient.getFirstName(), vipClient.getLastName(), vipClient.getId());
-    }
-	/**
-	 * copy constructor- by Object
+	 * copy constructor
 	 * @param other
 	 */
 	public VIPClient(Object other) {
-		this((VIPClient)other);
+		super(other);
 	}
 	
 	/**
 	 * vip client shipping price - reduce by a half
 	 */
 	@Override
-	public double computeFinalShippingPrice() { //need a check! TODO
+	public double computeFinalShippingPrice() {
 		return super.computeFinalShippingPrice()/2;
 	}
 }

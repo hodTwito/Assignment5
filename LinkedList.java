@@ -32,6 +32,7 @@ public class LinkedList implements List{
      * adds an element to the end of the list.
      * @param element the element that will be added.
      */
+	@Override
 	public void add(Object element){
 		if(element == null){
 			throw new NullPointerException();
@@ -56,6 +57,7 @@ public class LinkedList implements List{
      * @param index the index in which the element will be added.
      * @param element the element that will be added.
      */
+	@Override
 	public void add(int index, Object element){
 		if(index<0 || index>=size)
 			throw new IndexOutOfBoundsException();
@@ -86,6 +88,7 @@ public class LinkedList implements List{
     /**
      * @return the size of the list
      */
+	@Override
     public int size() {
         return size;
     }
@@ -95,6 +98,7 @@ public class LinkedList implements List{
      * @param element the element being searched for.
      * @return true if the list contains <code>element</code> and false otherwise.
      */
+	@Override
     public boolean contains(Object element) {
 	    if(element == null || size == 0) return false;
 	    else {
@@ -112,6 +116,7 @@ public class LinkedList implements List{
     /**
      * @return true if the list is empty and false otherwise.
      */
+	@Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -120,6 +125,7 @@ public class LinkedList implements List{
      * @param index the index of the desired element.
      * @return the element of the list at <code>index</code>
      */
+	@Override
     public Object get(int index) {
 	    if(index < 0) throw new IndexOutOfBoundsException("index smaller then 0");
 	    else if(index > size) throw new IndexOutOfBoundsException("index is greater then list size");
@@ -139,6 +145,7 @@ public class LinkedList implements List{
      * @param element the new element that will be placed in the list.
      * @return
      */
+	@Override
     public Object set(int index, Object element) {
         if(index < 0) throw new IndexOutOfBoundsException("index smaller then 0");
         else if(index > size) throw new IndexOutOfBoundsException("index is greater then list size");
